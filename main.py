@@ -11,6 +11,7 @@ ps = sys.argv[2]
 
 
 url = "https://www.tistory.com/auth/login"
+blog = "Your Blog URL"
 
 opt = webdriver.ChromeOptions()
 # opt.add_argument("headless")
@@ -39,7 +40,7 @@ def login(id, ps):
 
 
 def write_article(title, contents):
-    driver.get("https://bhban.tistory.com/manage/newpost/?type=post")
+    driver.get(blog + "/manage/newpost/?type=post")
     time.sleep(1)
 
     try:
@@ -85,7 +86,7 @@ def write_article(title, contents):
         publish_button = driver.find_element(By.ID, "publish-btn")
         publish_button.click()
 
-    while "https://bhban.tistory.com/manage/posts/" not in driver.current_url:
+    while "blog + "/manage/posts/" not in driver.current_url:
         time.sleep(1)
 
     print(title + " was Written")
