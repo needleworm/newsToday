@@ -86,7 +86,7 @@ def write_article(title, contents):
         publish_button = driver.find_element(By.ID, "publish-btn")
         publish_button.click()
 
-    while "blog + "/manage/posts/" not in driver.current_url:
+    while "blog" + "/manage/posts/" not in driver.current_url:
         time.sleep(1)
 
     print(title + " was Written")
